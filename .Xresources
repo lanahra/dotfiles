@@ -1,0 +1,3 @@
+xterm*termName: xterm-256color
+xterm*faceName: Inconsolata:antialias=true
+xterm*fontSize: 12

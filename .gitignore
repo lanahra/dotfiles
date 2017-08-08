@@ -1,0 +1,6 @@
+*~
+.*.sw*
+.vim/bundle/
+.xmonad/*
+!.xmonad/.xmobarrc
+!.xmonad/xmonad.hs

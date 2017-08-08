@@ -1,0 +1,8 @@
+[user]
+	name = Leonardo Nahra
+	email = leonardonahra@gmail.com
+[core]
+	editor = vim
+	excludesfile = /home/nahra/.gitignore
+[push]
+	default = simple
