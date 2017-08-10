@@ -18,6 +18,7 @@ syntax enable
 set number
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set listchars=tab:>·
+set colorcolumn=80
 
 let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeShowHidden=1
