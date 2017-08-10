@@ -7,7 +7,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'terryma/vim-multiple-cursors'
-
+Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin indent on
 
@@ -24,3 +24,13 @@ let NERDTreeShowHidden=1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
+
+autocmd BufWritePre *.js Neoformat
+
+let g:neoformat_javascript_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--stdin', '--single-quote'],
+    \ 'stdin': 1
+    \ }
+
+let g:neoformat_enabled_javascript = ['prettier']
