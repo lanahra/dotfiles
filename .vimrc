@@ -1,6 +1,9 @@
 set nocompatible
 filetype off
 
+nnoremap <space> <nop>
+let mapleader = "\<space>"
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -15,6 +18,8 @@ colorscheme Monokai
 
 syntax enable
 
+nnoremap <leader>f :Neoformat<cr>
+
 set number
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set listchars=tab:>·
@@ -25,8 +30,6 @@ let NERDTreeShowHidden=1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
-
-autocmd BufWritePre *.js Neoformat
 
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'prettier',
