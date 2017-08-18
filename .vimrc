@@ -11,6 +11,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'bling/vim-bufferline'
 Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin indent on
@@ -23,6 +24,7 @@ nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
     \ )<cr>
 
 let g:airline_theme='solarized'
+let g:bufferline_echo=0
 
 syntax enable
 
