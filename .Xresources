@@ -3,8 +3,8 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
-URxvt.font: xft:Inconsolata:size=14:antialias=true
-URxvt.letterSpace: -1
+URxvt*font: xft:Inconsolata:size=12:antialias=true,xft:Inconsolata for Powerline:size=12
+URxvt*letterSpace: -1
 
 ! Solarized theme colors
 #define S_yellow        #b58900

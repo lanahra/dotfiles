@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin indent on
@@ -20,6 +21,8 @@ nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
     \ ? substitute(g:colors_name, 'dark', 'light', '')
     \ : substitute(g:colors_name, 'light', 'dark', '')
     \ )<cr>
+
+let g:airline_theme='solarized'
 
 syntax enable
 
@@ -39,6 +42,8 @@ map <leader>k :NERDTreeToggle<CR>
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
+
+let g:airline_powerline_fonts = 1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
