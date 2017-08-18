@@ -7,8 +7,8 @@ let mapleader = "\<space>"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'sbdchd/neoformat'
 call vundle#end()
@@ -30,7 +30,14 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set listchars=tab:>·
 set colorcolumn=80
 
-let g:nerdtree_tabs_open_on_console_startup=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+map <leader>k :NERDTreeToggle<CR>
+
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
