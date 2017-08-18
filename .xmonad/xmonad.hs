@@ -9,7 +9,7 @@ main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
     xmonad $ defaultConfig
         {
-            terminal = "xterm",
+            terminal = "urxvt",
             modMask = mod4Mask,
             focusedBorderColor = "#ffffff",
             manageHook = manageDocks <+> manageHook defaultConfig,
