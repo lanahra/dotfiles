@@ -14,7 +14,12 @@ Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin indent on
 
-colorscheme Monokai
+set t_Co=256
+colorscheme solarized8_dark
+nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
+    \ ? substitute(g:colors_name, 'dark', 'light', '')
+    \ : substitute(g:colors_name, 'light', 'dark', '')
+    \ )<cr>
 
 syntax enable
 
