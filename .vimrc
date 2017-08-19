@@ -13,6 +13,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bling/vim-bufferline'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin indent on
