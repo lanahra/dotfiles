@@ -33,6 +33,7 @@ syntax enable
 nnoremap <leader>f :Neoformat<cr>
 
 set number
+set hidden
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set listchars=tab:>·
 set colorcolumn=80
@@ -44,6 +45,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nnoremap <leader>k :NERDTreeToggle<cr>
 nnoremap <leader><right> :bn<cr>
 nnoremap <leader><left> :bp<cr>
+nnoremap <leader>D :bp\|bd #<cr>
 
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
