@@ -46,6 +46,8 @@ nnoremap <leader>k :NERDTreeToggle<cr>
 nnoremap <leader><right> :bn<cr>
 nnoremap <leader><left> :bp<cr>
 nnoremap <leader>D :bp\|bd #<cr>
+nnoremap <c-j> o<esc>k
+nnoremap <c-k> O<esc>j
 
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
