@@ -1,3 +1,4 @@
+URxvt*saveLines: 10000
 URxvt*scrollBar:false
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
