@@ -18,6 +18,8 @@ Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin indent on
 
+au FileType c,cpp setlocal comments-=:// comments+=f://
+
 set t_Co=256
 colorscheme solarized8_dark
 nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
