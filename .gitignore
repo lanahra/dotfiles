@@ -4,3 +4,4 @@
 .xmonad/*
 !.xmonad/.xmobarrc
 !.xmonad/xmonad.hs
+!.xmonad/xmobar.hs

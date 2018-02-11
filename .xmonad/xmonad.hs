@@ -6,7 +6,7 @@ import System.IO
 import qualified Data.Map as Map
 
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
+    xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
     xmonad $ defaultConfig
         {
             terminal = "urxvt",
