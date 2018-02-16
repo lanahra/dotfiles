@@ -2,23 +2,29 @@ Config
     { bgColor = "#002b36"
     , fgColor = "#839496"
     , font = "xft:Inconsolata:size=14:antialias=true"
+    , iconRoot = ".xmonad/icons"
     , commands =
         [ Run Date "%d/%m/%y %H:%M" "date" 10
         , Run StdinReader
         , Run Brightness
-            [ "-t", "<percent>%"
+            [ "-t", "<ipat>"
             , "-w", "3"
             , "--"
             , "-D", "intel_backlight"
+            , "--brightness-icon-patter"
+            , "<icon=brightness/%%.xpm/> <percent>%"
             ]
             10
         , Run Battery
             [ "-t", "<leftipat>"
             , "-w", "3"
             , "--"
-            , "--on-icon-pattern", "<fc=#859900><left>%</fc>"
-            , "--off-icon-pattern", "<left>%"
-            , "--idle-icon-pattern", "<fc=#268bd2><left>%</fc>"
+            , "--on-icon-pattern"
+            , "<icon=batteryac/%%.xpm/> <fc=#859900><left>%</fc>"
+            , "--off-icon-pattern"
+            , "<icon=battery/%%.xpm/> <left>%"
+            , "--idle-icon-pattern"
+            , "<icon=batteryac/%%.xpm/> <fc=#268bd2><left>%</fc>"
             ]
             10
         , Run DynNetwork
