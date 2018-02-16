@@ -6,9 +6,9 @@ import System.IO
 import qualified Data.Map as Map
 
 
-myLogHook xmproc = dynamicLogWithPP xmobarPP
+myLogHook xmproc = dynamicLogWithPP def
     { ppOutput = hPutStrLn xmproc
-    , ppTitle = xmobarColor "#859900" "" . shorten 100
+    , ppTitle = xmobarColor "#859900" ""
     , ppCurrent = xmobarColor "#268bd2" "" . wrap "[" "]"
     , ppSep = xmobarColor "#fdf6e3" "" " : "
     }
@@ -18,12 +18,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = Map.fromList $
 
 main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
-    xmonad $ defaultConfig
+    xmonad $ def
         { terminal = "urxvt"
         , modMask = mod4Mask
         , focusedBorderColor = "#ffffff"
-        , manageHook = manageDocks <+> manageHook defaultConfig
+        , manageHook = manageDocks <+> manageHook def
+        , handleEventHook = handleEventHook def <+> docksEventHook
+        , layoutHook = avoidStruts $ layoutHook def
         , logHook = myLogHook xmproc
-        , layoutHook = avoidStruts $ layoutHook defaultConfig
-        , keys = \c -> myKeys c `Map.union` keys defaultConfig c
+        , keys = \c -> myKeys c `Map.union` keys def c
         }
