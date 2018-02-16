@@ -1,8 +1,9 @@
+import System.IO
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
-import System.IO
+import Graphics.X11.ExtraTypes.XF86
 import qualified Data.Map as Map
 
 
@@ -14,7 +15,10 @@ myLogHook xmproc = dynamicLogWithPP def
     }
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = Map.fromList $
-    [ ((modMask, xK_p), spawn "dmenu_run -b") ]
+    [ ((modMask, xK_p), spawn "dmenu_run -b")
+    , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
+    , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
+    ]
 
 main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
