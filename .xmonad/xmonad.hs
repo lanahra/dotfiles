@@ -18,6 +18,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = Map.fromList $
     [ ((modMask, xK_p), spawn "dmenu_run -b")
     , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
     , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
+    , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     ]
 
 main = do

@@ -2,6 +2,5 @@
 .*.sw*
 .vim/bundle/
 .xmonad/*
-!.xmonad/icons/
-!.xmonad/xmonad.hs
-!.xmonad/xmobar.hs
+!.xmonad/*.hs
+!.xmonad/*/

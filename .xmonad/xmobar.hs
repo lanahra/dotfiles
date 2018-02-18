@@ -33,10 +33,12 @@ Config
             , "-w", "6"
             ]
             10
+        , Run Com ".xmonad/scripts/sound.sh" [] "sound" 10
         ]
     , template =
         "%StdinReader% }{ \
         \%dynnetwork% <fc=#fdf6e3>:</fc> \
+        \%sound% <fc=#fdf6e3>:</fc> \
         \%bright% <fc=#fdf6e3>:</fc> \
         \%battery% <fc=#fdf6e3>:</fc> \
         \<fc=#268bd2>%date%</fc>"
