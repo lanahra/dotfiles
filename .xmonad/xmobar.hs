@@ -28,9 +28,12 @@ Config
             ]
             10
         , Run DynNetwork
-            [ "-t", "<dev> <rx> | <tx>"
+            [ "-t", "<dev> <rxipat> <txipat>"
             , "-S", "true"
             , "-w", "6"
+            , "--"
+            , "--rx-icon-pattern", "<icon=rx.xpm/> <rx>"
+            , "--tx-icon-pattern", "<icon=tx.xpm/> <tx>"
             ]
             10
         , Run Com ".xmonad/scripts/sound.sh" [] "sound" 10
