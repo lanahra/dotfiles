@@ -45,8 +45,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 nnoremap <leader>k :NERDTreeToggle<cr>
-nnoremap <leader><right> :bn<cr>
-nnoremap <leader><left> :bp<cr>
+nnoremap <leader>l :bn<cr>
+nnoremap <leader>h :bp<cr>
 nnoremap <leader>D :bp\|bd #<cr>
 nnoremap <c-j> o<esc>k
 nnoremap <c-k> O<esc>j
@@ -54,6 +54,7 @@ nnoremap <c-k> O<esc>j
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.swp$', '\.git$']
 
 let g:airline_powerline_fonts = 1
 

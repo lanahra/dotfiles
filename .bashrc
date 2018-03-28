@@ -11,6 +11,10 @@ shopt -s histappend
 
 shopt -s checkwinsize
 
+if [ -n "$DISPLAY" ]; then
+    xset b off
+fi
+
 source $HOME/.bash_prompt
 
 if [ -x /usr/bin/dircolors ]; then
