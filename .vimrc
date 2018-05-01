@@ -11,10 +11,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'bling/vim-bufferline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
+Plugin 'rust-lang/rust.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -28,7 +28,7 @@ nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
     \ )<cr>
 
 let g:airline_theme='solarized'
-let g:bufferline_echo=0
+let g:airline#extensions#tabline#enabled = 1
 
 syntax enable
 
