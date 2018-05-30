@@ -15,6 +15,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
 Plugin 'rust-lang/rust.vim'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 filetype plugin indent on
 
