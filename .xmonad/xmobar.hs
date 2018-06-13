@@ -1,7 +1,7 @@
 Config
     { bgColor = "#002b36"
     , fgColor = "#839496"
-    , font = "xft:Inconsolata:size=14:antialias=true"
+    , font = "xft:Input:style=regular:size=12:antialias=true"
     , iconRoot = ".xmonad/icons"
     , commands =
         [ Run Date "%d/%m/%y %H:%M" "date" 10
