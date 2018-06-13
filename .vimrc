@@ -11,11 +11,11 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'bling/vim-bufferline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
 call vundle#end()
+
 filetype plugin indent on
 
 au FileType c,cpp setlocal comments-=:// comments+=f://
@@ -27,8 +27,10 @@ nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
     \ : substitute(g:colors_name, 'light', 'dark', '')
     \ )<cr>
 
-let g:airline_theme='solarized'
-let g:bufferline_echo=0
+let g:airline_theme = 'solarized'
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = '%p%% : %l/%L : %c'
+let g:airline#extensions#tabline#enabled = 1
 
 syntax enable
 
@@ -55,8 +57,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.swp$', '\.git$']
-
-let g:airline_powerline_fonts = 1
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
