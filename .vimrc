@@ -7,13 +7,14 @@ let mapleader = "\<space>"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
+Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 filetype plugin indent on
@@ -36,6 +37,8 @@ syntax enable
 
 nnoremap <leader>f :Neoformat<cr>
 
+set autoread
+set updatetime=100
 set number
 set hidden
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
