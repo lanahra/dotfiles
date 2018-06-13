@@ -13,6 +13,7 @@ Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
