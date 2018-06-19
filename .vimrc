@@ -1,9 +1,69 @@
-set nocompatible
-filetype off
+" Colorscheme
+syntax enable
 
+set t_Co=256
+colorscheme solarized8_dark
+
+
+" Tab width
+set autoindent
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+
+" UI
+filetype indent on
+filetype plugin on
+set autoread
+set colorcolumn=80
+set cursorline
+set lazyredraw
+set number
+set showcmd
+set showmatch
+set updatetime=100
+set wildmenu
+
+
+" Search
+set ignorecase
+set incsearch
+set hlsearch
+
+
+" Leader
 nnoremap <space> <nop>
 let mapleader = "\<space>"
 
+nnoremap <leader>f :Neoformat<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>h :bp<cr>
+nnoremap <leader>l :bn<cr>
+nnoremap <leader>D :bp\|bd #<cr>
+nnoremap <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
+    \ ? substitute(g:colors_name, 'dark', 'light', '')
+    \ : substitute(g:colors_name, 'light', 'dark', '')
+    \ )<cr>
+
+
+" Shortcuts
+nnoremap j gj
+nnoremap k gk
+nnoremap gV `[v`]
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
+
+
+" Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -19,53 +79,26 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
-filetype plugin indent on
 
-au FileType c,cpp setlocal comments-=:// comments+=f://
-
-set t_Co=256
-colorscheme solarized8_dark
-nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
-    \ ? substitute(g:colors_name, 'dark', 'light', '')
-    \ : substitute(g:colors_name, 'light', 'dark', '')
-    \ )<cr>
-
+" Airline
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = '%p%% : %l/%L : %c'
 let g:airline#extensions#tabline#enabled = 1
 
-syntax enable
 
-nnoremap <leader>f :Neoformat<cr>
-
-set autoread
-set updatetime=100
-set number
-set hidden
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set listchars=tab:>·
-set colorcolumn=80
-
+" NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-nnoremap <leader>k :NERDTreeToggle<cr>
-nnoremap <leader>l :bn<cr>
-nnoremap <leader>h :bp<cr>
-nnoremap <leader>D :bp\|bd #<cr>
-nnoremap <c-j> o<esc>k
-nnoremap <c-k> O<esc>j
 
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.swp$', '\.git$']
 
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
 
+" Neoformat
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'prettier',
     \ 'args': ['--stdin', '--single-quote'],
