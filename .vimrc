@@ -19,6 +19,7 @@ filetype plugin on
 set autoread
 set colorcolumn=80
 set cursorline
+set hidden
 set lazyredraw
 set number
 set showcmd
