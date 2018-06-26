@@ -21,6 +21,7 @@ set colorcolumn=80
 set cursorline
 set hidden
 set lazyredraw
+set mouse=a
 set number
 set showcmd
 set showmatch
