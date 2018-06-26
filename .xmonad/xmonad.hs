@@ -2,6 +2,7 @@ import System.IO
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import XMonad.Util.Run(spawnPipe)
 import Graphics.X11.ExtraTypes.XF86
 import qualified Data.Map as Map
@@ -29,6 +30,7 @@ main = do
         { terminal = "urxvt"
         , modMask = mod4Mask
         , focusedBorderColor = "#ffffff"
+        , startupHook = setWMName "LG3D"
         , manageHook = manageDocks <+> manageHook def
         , handleEventHook = handleEventHook def <+> docksEventHook
         , layoutHook = avoidStruts $ layoutHook def
