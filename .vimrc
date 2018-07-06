@@ -42,6 +42,7 @@ nnoremap <space> <nop>
 let mapleader = "\<space>"
 
 nnoremap <leader>f :Neoformat<cr>
+vnoremap <leader>f :Neoformat! &filetype<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>h :bp<cr>
 nnoremap <leader>l :bn<cr>
@@ -67,11 +68,19 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
 
 
+" AutoGroup
+augroup configgroup
+    autocmd!
+    autocmd BufEnter *.java setlocal colorcolumn=100
+augroup END
+
+
 " Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ap/vim-css-color'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'sbdchd/neoformat'
@@ -108,10 +117,20 @@ let NERDTreeIgnore = ['\.swp$', '\.git$']
 
 
 " Neoformat
+let g:neoformat_java_google = {
+    \ 'exe': 'java',
+    \ 'args': ['-jar', '~/.jars/google-java-format.jar', '--aosp', '-'],
+    \ 'stdin': 1
+    \ }
+
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'prettier',
     \ 'args': ['--stdin', '--single-quote'],
     \ 'stdin': 1
     \ }
 
+let g:neoformat_enabled_java = ['google']
 let g:neoformat_enabled_javascript = ['prettier']
+
+" Syntastic
+let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }
