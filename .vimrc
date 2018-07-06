@@ -54,6 +54,12 @@ nnoremap <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
 
 
 " Shortcuts
+nnoremap <C-c> "+yy
+vnoremap <C-c> "+y
+nnoremap <C-x> "+dd
+vnoremap <C-x> "+d
+nnoremap <C-v> "+p
+vnoremap <C-v> d"+p
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
