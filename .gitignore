@@ -4,3 +4,4 @@
 .xmonad/*
 !.xmonad/*.hs
 !.xmonad/*/
+tags

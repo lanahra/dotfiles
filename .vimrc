@@ -44,6 +44,8 @@ let mapleader = "\<space>"
 nnoremap <leader>f :Neoformat<cr>
 vnoremap <leader>f :Neoformat! &filetype<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>b :TagbarToggle<cr>
+nnoremap <leader>/ :CtrlPTag<cr>
 nnoremap <leader>h :bp<cr>
 nnoremap <leader>l :bn<cr>
 nnoremap <leader>D :bp\|bd #<cr>
@@ -59,6 +61,7 @@ vnoremap <C-c> "+y
 nnoremap <C-x> "+dd
 vnoremap <C-x> "+d
 nnoremap <C-v> "+p
+inoremap <C-v> <esc>"+pi
 vnoremap <C-v> d"+p
 nnoremap j gj
 nnoremap k gk
@@ -87,8 +90,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
+Plugin 'craigemery/vim-autotag'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
 Plugin 'sbdchd/neoformat'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
