@@ -20,7 +20,6 @@ set autoread
 set colorcolumn=80
 set cursorline
 set hidden
-set lazyredraw
 set list
 set listchars=tab:>>
 set mouse=a
@@ -41,9 +40,11 @@ set hlsearch
 nnoremap <space> <nop>
 let mapleader = "\<space>"
 
+nnoremap <leader>q :source ~/.vimrc<cr>
 nnoremap <leader>f :Neoformat<cr>
-vnoremap <leader>f :Neoformat! &filetype<cr>
+xnoremap <leader>f :Neoformat! &filetype<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>T :NERDTreeFind<cr>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>/ :CtrlPTag<cr>
 nnoremap <leader>h :bp<cr>
@@ -53,16 +54,20 @@ nnoremap <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
     \ ? substitute(g:colors_name, 'dark', 'light', '')
     \ : substitute(g:colors_name, 'light', 'dark', '')
     \ )<cr>
+nnoremap <leader>ca :call CscopeFindInteractive(expand('<cword>'))<cr>
+nnoremap <leader>ct :call ToggleLocationList()<cr>
+nnoremap <leader>cc :call CscopeFind('c', expand('<cword>'))<cr>
 
 
 " Shortcuts
+nnoremap <esc> :noh<cr>
 nnoremap <C-c> "+yy
-vnoremap <C-c> "+y
+xnoremap <C-c> "+y
 nnoremap <C-x> "+dd
-vnoremap <C-x> "+d
+xnoremap <C-x> "+d
 nnoremap <C-v> "+p
-inoremap <C-v> <esc>"+pi
-vnoremap <C-v> d"+p
+inoremap <C-v> <esc>"+pa
+xnoremap <C-v> d<esc>"+P
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
@@ -90,6 +95,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
+Plugin 'brookhong/cscope.vim'
 Plugin 'craigemery/vim-autotag'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
@@ -112,6 +118,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 
+" cscope
+let g:cscope_silent = 1
+
+
 " gitgutter
 let g:gitgutter_map_keys = 0
 
@@ -120,6 +130,10 @@ let g:gitgutter_map_keys = 0
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+autocmd FileType nerdtree noremap <buffer> <leader>h <nop>
+autocmd FileType nerdtree noremap <buffer> <leader>l <nop>
+autocmd FileType nerdtree noremap <buffer> <leader>D <nop>
 
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
@@ -142,6 +156,7 @@ let g:neoformat_javascript_prettier = {
 
 let g:neoformat_enabled_java = ['google']
 let g:neoformat_enabled_javascript = ['prettier']
+
 
 " Syntastic
 let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }

@@ -5,3 +5,5 @@
 !.xmonad/*.hs
 !.xmonad/*/
 tags
+cscope.files
+cscope.out
