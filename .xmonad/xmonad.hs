@@ -7,6 +7,7 @@ import XMonad.Util.Run(spawnPipe)
 import Graphics.X11.ExtraTypes.XF86
 import qualified Data.Map as Map
 
+xF86XK_AudioMicMute = 0x1008ffb2
 
 myLogHook xmproc = dynamicLogWithPP def
     { ppOutput = hPutStrLn xmproc
@@ -23,6 +24,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = Map.fromList $
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
     , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
     ]
 
 main = do
