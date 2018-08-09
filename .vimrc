@@ -86,6 +86,7 @@ autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
 augroup configgroup
     autocmd!
     autocmd BufEnter *.java setlocal colorcolumn=100
+    autocmd BufEnter *.pug setlocal filetype=pug
 augroup END
 
 
@@ -98,6 +99,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'brookhong/cscope.vim'
 Plugin 'craigemery/vim-autotag'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'digitaltoad/vim-pug'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'sbdchd/neoformat'
@@ -116,6 +118,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_z = '%p%% : %l/%L : %c'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+
+" CtrlP
+
+let g:ctrlp_max_files = 0
 
 
 " cscope
