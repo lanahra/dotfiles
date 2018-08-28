@@ -87,6 +87,7 @@ augroup configgroup
     autocmd!
     autocmd BufEnter *.java setlocal colorcolumn=100
     autocmd BufEnter *.pug setlocal filetype=pug
+    autocmd BufEnter *.yaml,*.yml setlocal sw=2 sts=2
 augroup END
 
 
@@ -107,6 +108,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
