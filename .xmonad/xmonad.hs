@@ -19,6 +19,7 @@ myLogHook xmproc = dynamicLogWithPP def
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = Map.fromList $
     [ ((modMask, xK_p), spawn "dmenu_run -b")
     , ((modMask, xK_s), spawn "slock")
+    , ((modMask, xK_i), spawn "import png:- | xclip -selection clipboard -t image/png")
     , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
     , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
