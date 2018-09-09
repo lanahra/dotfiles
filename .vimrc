@@ -87,7 +87,9 @@ augroup configgroup
     autocmd!
     autocmd BufEnter *.java setlocal colorcolumn=100
     autocmd BufEnter *.pug setlocal filetype=pug
+    autocmd BufEnter *.js.snap setlocal filetype=javascript
     autocmd BufEnter *.yaml,*.yml setlocal sw=2 sts=2
+    autocmd BufEnter Jenkinsfile setlocal filetype=groovy
 augroup END
 
 
