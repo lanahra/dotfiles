@@ -111,6 +111,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
@@ -153,6 +154,12 @@ let NERDTreeIgnore = ['\.swp$', '\.git$']
 
 
 " Neoformat
+let g:neoformat_c_clang = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['-style=~/.clang-format'],
+    \ 'stdin': 1
+    \ }
+
 let g:neoformat_java_google = {
     \ 'exe': 'java',
     \ 'args': ['-jar', '~/.jars/google-java-format.jar', '--aosp', '-'],
@@ -165,9 +172,14 @@ let g:neoformat_javascript_prettier = {
     \ 'stdin': 1
     \ }
 
+let g:neoformat_enabled_c = ['clangformat']
 let g:neoformat_enabled_java = ['google']
 let g:neoformat_enabled_javascript = ['prettier']
 
 
 " Syntastic
 let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }
+
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
