@@ -172,9 +172,23 @@ let g:neoformat_javascript_prettier = {
     \ 'stdin': 1
     \ }
 
+let g:neoformat_xml_tidier = {
+    \ 'exe': 'tidy',
+    \ 'args': ['-quiet',
+    \          '-xml',
+    \          '--indent auto',
+    \          '--indent-spaces ' . shiftwidth(),
+    \          '--vertical-space yes',
+    \          '--indent-attributes yes',
+    \          '--tidy-mark no'
+    \         ],
+    \ 'stdin': 1,
+    \ }
+
 let g:neoformat_enabled_c = ['clangformat']
 let g:neoformat_enabled_java = ['google']
 let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_xml = ['tidier']
 
 
 " Syntastic
