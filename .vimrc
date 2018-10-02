@@ -104,6 +104,7 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'ervandew/supertab'
+Plugin 'janko-m/vim-test'
 Plugin 'majutsushi/tagbar'
 Plugin 'sbdchd/neoformat'
 Plugin 'scrooloose/nerdtree'
@@ -197,3 +198,7 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+
+"" Vim Test
+let test#javascript#jest#options = '--config=jest.config.json'
