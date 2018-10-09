@@ -7,3 +7,6 @@
 tags
 cscope.files
 cscope.out
+.classpath
+.project
+.settings/
