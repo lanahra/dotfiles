@@ -20,12 +20,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = Map.fromList $
     [ ((modMask, xK_p), spawn "dmenu_run -b")
     , ((modMask, xK_s), spawn "xset dpms force off && slock")
     , ((modMask, xK_i), spawn "import png:- | xclip -selection clipboard -t image/png")
-    , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
-    , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
-    , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    , ((modMask, xK_F1), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ((modMask, xK_F2), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((modMask, xK_F3), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((modMask, xK_F4), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    , ((modMask, xK_F5), spawn "xbacklight -dec 10")
+    , ((modMask, xK_F6), spawn "xbacklight -inc 10")
+    , ((modMask, xK_F8), spawn "~/.xmonad/scripts/toggle_wifi.sh")
     ]
 
 main = do

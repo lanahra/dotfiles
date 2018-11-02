@@ -1,7 +1,7 @@
 Config
     { bgColor = "#002b36"
     , fgColor = "#839496"
-    , font = "xft:Input:style=regular:size=12:antialias=true"
+    , font = "xft:Input:style=bold:size=11:antialias=true"
     , iconRoot = ".xmonad/icons"
     , commands =
         [ Run Date "%d/%m/%y %H:%M" "date" 10
@@ -37,11 +37,13 @@ Config
             ]
             10
         , Run Com ".xmonad/scripts/sound.sh" [] "sound" 10
+        , Run Com ".xmonad/scripts/mic.sh" [] "mic" 10
         ]
     , template =
         "%StdinReader% }{ \
         \%dynnetwork% <fc=#fdf6e3>:</fc> \
         \%sound% <fc=#fdf6e3>:</fc> \
+        \%mic% <fc=#fdf6e3>:</fc> \
         \%bright% <fc=#fdf6e3>:</fc> \
         \%battery% <fc=#fdf6e3>:</fc> \
         \<fc=#268bd2>%date%</fc>"

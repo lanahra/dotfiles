@@ -4,7 +4,7 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
-URxvt*font: xft:Input:style=bold:size=12:antialias=true
+URxvt*font: xft:Input:style=bold:size=11:antialias=true
 
 ! Solarized theme colors
 #define S_yellow        #b58900
