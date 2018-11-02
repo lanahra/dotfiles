@@ -60,7 +60,7 @@ nnoremap <leader>cc :call CscopeFind('c', expand('<cword>'))<cr>
 
 
 " Shortcuts
-nnoremap <esc> :noh<cr>
+nnoremap <esc> :noh<cr><esc>
 nnoremap <C-c> "+yy
 xnoremap <C-c> "+y
 nnoremap <C-x> "+dd
@@ -77,16 +77,12 @@ map <C-k> <C-W>k
 map <C-l> <C-W>l
 
 
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
-
-
 " AutoGroup
 augroup configgroup
     autocmd!
     autocmd BufEnter *.java setlocal colorcolumn=100
     autocmd BufEnter *.pug setlocal filetype=pug
+    autocmd BufEnter *.ts,*.tsx setlocal filetype=typescript
     autocmd BufEnter *.js.snap setlocal filetype=javascript
     autocmd BufEnter *.yaml,*.yml setlocal sw=2 sts=2
     autocmd BufEnter Jenkinsfile setlocal filetype=groovy
@@ -100,11 +96,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
 Plugin 'brookhong/cscope.vim'
-Plugin 'craigemery/vim-autotag'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'ervandew/supertab'
 Plugin 'janko-m/vim-test'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'sbdchd/neoformat'
 Plugin 'scrooloose/nerdtree'
@@ -112,6 +109,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -127,7 +126,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 
 " CtrlP
-
 let g:ctrlp_max_files = 0
 
 
@@ -151,7 +149,20 @@ autocmd FileType nerdtree noremap <buffer> <leader>D <nop>
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.swp$', '\.git$']
+let NERDTreeIgnore = ['\.swp$', '\.git$', 'Session.vim$', 'tags$']
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "~",
+    \ "Staged"    : "+",
+    \ "Untracked" : "?",
+    \ "Renamed"   : ">",
+    \ "Unmerged"  : "=",
+    \ "Deleted"   : "-",
+    \ "Dirty"     : "~",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "."
+    \ }
 
 
 " Neoformat
@@ -173,6 +184,12 @@ let g:neoformat_javascript_prettier = {
     \ 'stdin': 1
     \ }
 
+let g:neoformat_typescript_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--stdin', '--single-quote', '--parser', 'typescript'],
+    \ 'stdin': 1
+    \ }
+
 let g:neoformat_xml_tidier = {
     \ 'exe': 'tidy',
     \ 'args': ['-quiet',
@@ -189,6 +206,7 @@ let g:neoformat_xml_tidier = {
 let g:neoformat_enabled_c = ['clangformat']
 let g:neoformat_enabled_java = ['google']
 let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_xml = ['tidier']
 
 
@@ -202,3 +220,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 "" Vim Test
 let test#javascript#jest#options = '--config=jest.config.json'
+
+
+"" Typescript
+let g:typescript_indent_disable = 1
